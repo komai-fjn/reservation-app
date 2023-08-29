@@ -3,7 +3,7 @@
   <div class="row row-cols-1 row-cols-sm-4 g-4">
     <ng-container *ngFor="let product of products; let productId = index">
       <div class="col">
-        <a routerLink="{{ productId }}">
+        <a routerLink="{{ product._id }}">
           <div class="card h-100">
             <!-- <h2>product No.:{{ product. }}</h2> -->
             <img
