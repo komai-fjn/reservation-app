@@ -1,7 +1,7 @@
-const Product = require('./model/product')
+const Product = require("./model/product");
 
-class FakeDB{
-  constructor(){
+class FakeDB {
+  constructor() {
     this.products = [
       {
         name: "Phone XL",
@@ -114,28 +114,25 @@ class FakeDB{
     ];
   }
 
-  async init(){
-    await this.cleanDb()
-    this.pushProductsToDb()
+  async init() {
+    await this.cleanDb();
+    this.pushProductsToDb();
   }
 
-  async cleanDb(){
-    await Product.deleteMany({})
+  async cleanDb() {
+    await Product.deleteMany({});
   }
 
-    pushProductsToDb(){
-      this.products.forEach(
-        (product) => {
-          const newProduct = new Product(product)
-          newProduct.save()
-        }
-      );
-    }
-
-    seeDb(){
-      this.pushProductsToDb()
-    }
+  pushProductsToDb() {
+    this.products.forEach((product) => {
+      const newProduct = new Product(product);
+      newProduct.save();
+    });
   }
 
+  seeDb() {
+    this.pushProductsToDb();
+  }
+}
 
-module.exports = FakeDB
+module.exports = FakeDB;
